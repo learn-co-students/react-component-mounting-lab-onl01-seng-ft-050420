@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import Timer from './Timer'
 
 class App extends Component {
@@ -9,9 +8,9 @@ class App extends Component {
     timerIDs: []
   }
 
-
-  //Your code here:
-
+  componentDidMount() {
+    this.handleAddTimer()
+  }
 
 
 
@@ -45,7 +44,7 @@ class App extends Component {
   // adds a random number for timer ID
   handleAddTimer = () => {
     this.setState(prevState => ({
-      timerIDs: [...prevState.timerIDs, Math.floor(Math.random()*1000)]
+      timerIDs: [...prevState.timerIDs, Math.floor(Math.random() * 1000)]
     }))
   }
 
