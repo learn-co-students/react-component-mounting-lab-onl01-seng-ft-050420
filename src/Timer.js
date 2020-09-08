@@ -6,9 +6,18 @@ class Timer extends Component {
     color: "#" + Math.floor(Math.random() * 16777215).toString(16)
   };
 
-  // add your code here
+  componentDidMount() {
+    console.log("Timer Component Mounted")
+    this.interval = setInterval(this.clockTick, 1000)
+  }
+
+  componentWillUnmount() {
+    console.log("Timer Component Unmounted")
+    clearInterval(this.interval)
+  }
 
   render() {
+    console.log('Timer Render')
     const { time, color } = this.state;
     return (
       <section className="Timer" style={{ background: color }}>
